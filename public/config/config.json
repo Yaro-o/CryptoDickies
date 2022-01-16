@@ -1,17 +1,17 @@
 {
-  "CONTRACT_ADDRESS": "0x082ec271152CC7F957D10B15892A5B0EffFeeD59",
-  "SCAN_LINK": "https://polygonscan.com/token/0x082ec271152CC7F957D10B15892A5B0EffFeeD59",
+  "CONTRACT_ADDRESS": "0xef2976b9c6d1cb65060b7d5e9e8945da1f54df31",
+  "SCAN_LINK": "https://etherscan.io/address/0xef2976b9c6d1cb65060b7d5e9e8945da1f54df31",
   "NETWORK": {
-    "NAME": "Polygon",
-    "SYMBOL": "Matic",
-    "ID": 137
+    "NAME": "Ethereum",
+    "SYMBOL": "ETH",
+    "ID": 1
   },
-  "NFT_NAME": "Heisenberg NFT",
-  "SYMBOL": "METH",
-  "MAX_SUPPLY": 2999,
-  "WEI_COST": 10000000000000000000,
-  "DISPLAY_COST": 10,
-  "GAS_LIMIT": 285000,
+  "NFT_NAME": "Crypto Dickies",
+  "SYMBOL": "DICK",
+  "MAX_SUPPLY": 9999,
+  "WEI_COST": 10000000000000000,
+  "DISPLAY_COST": 0.01,
+  "GAS_LIMIT": 65000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://opensea.io/collection/heisenberg--nft",
   "SHOW_BACKGROUND": true
