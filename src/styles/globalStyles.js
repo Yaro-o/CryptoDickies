@@ -40,8 +40,10 @@ export const SpacerLarge = styled.div`
 export const Container = styled.div`
   display: flex;
   flex: ${({ flex }) => (flex ? flex : 0)};
-  flex-direction: ${({ fd }) => (fd ? fd : "column")};
-  justify-content: ${({ jc }) => (jc ? jc : "flex-start")};
+  flex-wrap: wrap;
+  
+  flex-direction: column;
+  justify-content: center;
   align-items: ${({ ai }) => (ai ? ai : "flex-start")};
   background-color: ${({ test }) => (test ? "pink" : "none")};
   width: 100%;
@@ -52,8 +54,8 @@ export const Container = styled.div`
 
 export const TextTitle = styled.p`
   color: var(--primary-text);
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 100;
   
   line-height: 1.6;
 `;
@@ -69,6 +71,15 @@ export const TextDescription = styled.p`
   color: var(--primary-texta);
   font-size: 18px;
   line-height: 1.6;
+  
+  
+`;
+
+export const TextDescription2 = styled.p`
+  color: var(--primary-texta);
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: bolder;
   
   
 `;
