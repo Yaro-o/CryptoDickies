@@ -9,24 +9,35 @@ import blockchainReducer from "./redux/blockchain/blockchainReducer";
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export const StyledButton = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
+  export const StyledButton = styled.button`
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--mycolor);
+  padding: 10px;
+  font-weight: bold;
+  color: var(--secondary-text);
+  width: 100px;
+  cursor: pointer;
+  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
 `;
 
 export const StyledRoundButton = styled.button`
   padding: 10px;
   border-radius: 100%;
   border: none;
-  background-color: var(--primary);
+  background-color: var(--mycolor);
   padding: 10px;
   font-weight: bold;
   font-size: 15px;
-  color: var(--primary-text);
+  color: var(--secondary-text);
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -42,7 +53,7 @@ export const StyledRoundButton = styled.button`
     -moz-box-shadow: none;
   }
 `;
-
+  
 export const ResponsiveWrapper = styled.div`
   display: flex;
   flex: 1;
@@ -81,6 +92,16 @@ export const StyledImg = styled.img`
 export const StyledLink = styled.a`
   color: var(--secondary);
   text-decoration: none;
+`;
+
+export const StyledImgBottom = styled.img`
+
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  border: none;
+  background-color: none;
+  border-radius: none;
+  width: 12%;
+  min-width: 60px;
 `;
 
 function App() {
@@ -184,29 +205,37 @@ function App() {
 
   return (
     <s.Screen>
+      <s.Container
+        flex={1}
+        ai={"center"}
+        style={{ padding: 24, backgroundColor: "var(--primary-text)" }}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
+      >
 
         
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
 
-        <s.Container
-            flex={2}
-            jc={"center"}
-            ai={"center"}
-            
+        <s.Container flex={2} jc={"center"} ai={"center"}              
             style={{
-              backgroundColor: "white",
-              opacity: 0.8,
+              backgroundColor: "#638596",
+              opacity: 1,
               padding: 24,
               borderRadius: 24,
-              border: "4px groove var(--secondary)",
+              
+              
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
-            }}
-          >
-          
-          <a href={CONFIG.MARKETPLACE_LINK}>
-          <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
-          </a>
-          
+              flexDirection: "row"
+            }}>
+            <StyledImgBottom alt={"example"} src={"/config/images/017.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/002.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/003.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/004.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/005.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/007.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/006.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/016.png"} />
+
+            
           </s.Container>
 
 
@@ -231,10 +260,22 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
+
             <s.TextTitle
               style={{
                 textAlign: "center",
-                fontSize: 50,
+                fontSize: 30,
+                fontWeight: "bold",
+                color: "var(--accent-text)",
+              }}
+            >
+              Crypto Dickies
+            </s.TextTitle>
+
+            <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 30,
                 fontWeight: "bold",
                 color: "var(--accent-text)",
               }}
@@ -248,7 +289,7 @@ function App() {
               }}
             >
               <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                Contract Address: {truncate(CONFIG.CONTRACT_ADDRESS,5)}
               </StyledLink>
             </s.TextDescription>
             <span
@@ -312,7 +353,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+                  1 {CONFIG.SYMBOL} costs ONLY {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 
@@ -321,6 +362,13 @@ function App() {
                 >
                   Excluding gas fees
                 </s.TextDescription>
+
+                <s.TextDescription
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  The Smart Contract is highly optimized to lower the Gas Fees. Gas Limit for minting EACH Token is set at ONLY 65,000. 
+                </s.TextDescription>
+
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
@@ -416,46 +464,82 @@ function App() {
                 )}
               </>
             )}
-            <s.SpacerMedium />
+            <s.SpacerLarge />
+
+            <s.TextDescription2
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      Crypto Dickies is a tribute to the legendary CryptoPunks.
+                      We searched everywhere for a nice dick but could not find one.
+                      So we decided to build our own. We love our little dickies and we hope you like it too. 
+                    </s.TextDescription2>
+
+                    <s.SpacerSmall />
+
+                    <s.TextDescription2
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      Cyrpto Dickies are Fully-On-Chain Randomly Generated NFTs. The entire artwork and metadata is stored on the Blockchain.
+                      "No IPFS, no off-chain API, no chance of compromise or change of Metadata." 
+                    </s.TextDescription2>
+
+                    <s.SpacerSmall />
+
+                    <s.TextDescription2
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      30% of the sales will be used to pay for community members' penis enlargement surguries.
+                      To be eligible join our Telegram channel. 
+                    </s.TextDescription2>
+                    
+
           </s.Container>
           <s.SpacerLarge />
+
+
+          <s.Container flex={2} jc={"center"} ai={"center"}              
+            style={{
+              backgroundColor: "#638596",
+              opacity: 1,
+              padding: 24,
+              borderRadius: 24,
+              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+              flexDirection: "row"
+            }}>
+            <StyledImgBottom alt={"example"} src={"/config/images/008.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/010.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/009.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/011.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/012.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/013.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/014.png"} />
+            <StyledImgBottom alt={"example"} src={"/config/images/015.png"} />
+
+
+            
+          </s.Container>
+
 
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           
-        <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-texta)",
-            }}
-          >
-          
-            Heisenberg NFTs or $METH tokens are fully-on-chain randomly generated NFTs built on the Polygon Network.
-          </s.TextDescription>
-          <s.SpacerSmall />
 
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-texta)",
-            }}
-          >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address.
-          </s.TextDescription>
-          
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-texta)",
-            }}
-          >
-            Gas limit is set to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. 
-          </s.TextDescription>
         </s.Container>
-     
+
+
+
+
+      </s.Container>
     </s.Screen>
   );
 }
