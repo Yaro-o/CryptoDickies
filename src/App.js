@@ -299,7 +299,7 @@ function App() {
             >
               <StyledButton
                 onClick={(e) => {
-                  window.open("https://twitter.com/HeisenbergNFTs", "_blank");
+                  window.open("https://twitter.com/Crypto_Dickies", "_blank");
                 }}
                 style={{
                   margin: "5px",
@@ -310,7 +310,7 @@ function App() {
 
               <StyledButton
                 onClick={(e) => {
-                  window.open("https://t.me/+A74GA5WCfTYyODdh", "_blank");
+                  window.open("https://t.me/+as2O3asTjuQ0YjRh", "_blank");
                 }}
                 style={{
                   margin: "5px",
