@@ -353,7 +353,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs ONLY {CONFIG.DISPLAY_COST}{" "}
+                  First 1000 mints are free then 1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 
